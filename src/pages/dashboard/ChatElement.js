@@ -12,7 +12,7 @@ const ChatElement = ({ img, name, time, msg, unread, online }) => {
         backgroundColor:
           theme.palette.mode === "light"
             ? "#fff"
-            : theme.palette.background.default,
+            : theme.palette.background.paper,
         p: 2,
         alignItems: "center",
       }}

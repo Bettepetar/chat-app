@@ -9,9 +9,14 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from "phosphor-react";
+import { useDispatch } from "react-redux";
+import { ToggleSidebar } from "../redux/slices/appSlice";
 import { StyledBadge } from "../StyledBadge";
 const Header = () => {
     const theme = useTheme()
+    const dispatch = useDispatch()
+    // access the store
+    // let useSelector()
   return (
     <Box
       sx={{
@@ -19,7 +24,7 @@ const Header = () => {
         background:
           theme.palette.mode === "light"
             ? "#F8FaFF"
-            : theme.palette.background.paper,
+            : theme.palette.background.default,
         boxShadow: "0 0 2px rgba(0,0,0, .25)",
       }}
       p={3}
@@ -31,7 +36,13 @@ const Header = () => {
         sx={{ height: "100%", width: "100%" }}
         //   p={3}
       >
-        <Stack direction={"row"} spacing={3}>
+        <Stack 
+            onClick={() => {
+              dispatch(ToggleSidebar())
+            }} 
+            sx={{ cursor: "pointer"}}
+            direction={"row"} spacing={3}
+        >
           <StyledBadge
             overlap="circular"
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}

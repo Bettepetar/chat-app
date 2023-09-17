@@ -12,7 +12,7 @@ const Chat = () => {
     const Search = styled("div")(({ theme })=> ({
         position: "relative",
         borderRadius: 20,
-        backgroundColor:alpha(theme.palette.background.default, 1),
+        backgroundColor:alpha(theme.palette.background.paper, 1),
         marginRight: theme.spacing(2),
         marginLeft: 0,
         width: "100%" 
@@ -44,7 +44,7 @@ const Chat = () => {
           backgroundColor:
             theme.palette.mode === "light"
               ? "#F8FAFF"
-              : theme.palette.background.paper,
+              : theme.palette.background.default,
         }}
       >
         <Stack p={3} spacing={2} sx={{ height: "100vh" }}>
@@ -94,7 +94,7 @@ const Chat = () => {
               </Stack>
               <Stack spacing={2.4}>
                 <Typography variant={"subtitle2"} sx={{ color: "#676767" }}>
-                  Pinned
+                  All chats
                 </Typography>
                 {ChatList.filter((el) => !el.pinned).map((el) => (
                   <ChatElement key={el.id} {...el} />
